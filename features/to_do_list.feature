@@ -7,9 +7,9 @@ Feature: Acceptance testing
 
     Scenario: List all tasks
         Given the following tasks are in the to-do list
-        | Title     | Description     | Due Date   | Priority |
-        | Task 1    | Description 1  | 2023-08-15 | High     |
-        | Task 2    | Description 2  | 2023-08-20 | Medium   |
+        | Title     | Description     | Due Date   | Priority | Status    |
+        | Task 1    | Description 1  | 2023-08-15 | High     | Not Done  |
+        | Task 2    | Description 2  | 2023-08-20 | Medium   | Not Done  |
         When I list the tasks
         Then I should see the following tasks in the output
         | Title     | Description     | Due Date   | Priority | Status    |

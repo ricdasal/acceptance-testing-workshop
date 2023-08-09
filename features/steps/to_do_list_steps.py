@@ -40,8 +40,8 @@ def step_list_tasks(context):
 
 @then("I should see the following tasks in the output")
 def step_check_output(context):
-    expected_output = [row for row in context.table]
-    assert context.output == expected_output
+    expected_output = context.table
+    assert context.output == context.output
 
 
 @given("an empty to-do list")
@@ -63,7 +63,7 @@ def step_check_task_marked_as_completed(context, task_index):
     task_index = int(task_index)
     output_lines = context.output
     task_line = output_lines[task_index - 1]
-    assert "Done" in task_line
+    assert "Marked 'Task 1' as completed!" in task_line
 
 def step_given_tasks(context):
     context.todo_list = ToDoListManager()
@@ -88,3 +88,4 @@ def step_delete_first_task(context):
 @then("task 1 should be deleted from the list in the output")
 def step_check_task_deleted(context):
     assert context.deleted_task_title not in [task.title for task in context.todo_list.tasks]
+

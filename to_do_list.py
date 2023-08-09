@@ -18,9 +18,10 @@ class ToDoListManager:
         if not self.tasks:
             print("No tasks in the to-do list.")
         else:
+            print(" | Title     | Description     | Due Date   | Priority | Status    |")
             for index, task in enumerate(self.tasks, start=1):
                 status = "Done" if task.completed else "Not Done"
-                print(f"{index}. {task.title} - {task.description} (Due: {task.due_date}, Priority: {task.priority}, Status: {status})")
+                print(f" {task.title} | {task.description} | {task.due_date} | {task.priority} | {status})")
 
     def mark_task_completed(self, task_index):
         if 1 <= task_index <= len(self.tasks):
